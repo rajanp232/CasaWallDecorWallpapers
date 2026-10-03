@@ -7,6 +7,21 @@
   gtag('js', new Date());
   gtag('config', 'AW-18470161576');
 </script>
+<!-- Google Ads conversion event for WhatsApp and Call leads -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof url !== 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18470161576/1eJZCKjw8IcdEKiZoedE',
+    'event_callback': callback
+  });
+  return false;
+}
+</script>
 </head><body>
 <div class="topbar"><span>NOIDA • CUSTOM WALLPAPER • PROFESSIONAL INSTALLATION</span><a href="tel:+919211060303">CALL +91 92110 60303</a></div>
 <header><a class="logo" href="#home"><b>CASA</b><small>WALL DECOR</small></a><nav id="nav"><a href="#collections">Collections</a><a href="#edit">Design Edit</a><a href="#studio">Wall Preview</a><a href="#visit">Visit</a></nav><a class="headerCta" href="https://wa.me/919211060303?text=Hi%20Casa%20Wall%20Decor%2C%20I%20want%20a%20free%20wallpaper%20preview">GET FREE PREVIEW</a><button class="menu" aria-label="Menu">☰</button></header>
@@ -26,4 +41,15 @@
 </main><footer><a class="logo" href="#home"><b>CASA</b><small>WALL DECOR</small></a><p>Premium customized wallpapers • Noida</p><p>© 2026 CASA WALL DECOR</p></footer>
 <div class="contactDock"><a class="call" href="tel:+919211060303"><span>☎</span><b>CALL NOW</b><small>92110 60303</small></a><a class="wa" href="https://wa.me/919211060303?text=Hi%20Casa%20Wall%20Decor%2C%20I%20want%20wallpaper%20designs"><span>◉</span><b>WHATSAPP</b><small>Get designs & price</small></a></div>
 <div class="modal" id="modal" aria-hidden="true"><button class="close">×</button><div class="modalBox"><img id="modalImg" alt="Wallpaper design"><div class="modalInfo"><small id="modalCode"></small><h2 id="modalTitle"></h2><p>Available for custom sizing. Share your wall photo and dimensions for selection assistance and preview.</p><a id="modalWa" class="btn dark" href="#">GET PRICE ON WHATSAPP</a></div></div></div>
-<script src="script.js"></script></body></html>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('a[href^="https://wa.me/"], a[href^="tel:"]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      gtag_report_conversion(this.href);
+    });
+  });
+});
+</script>
+</body></html>
